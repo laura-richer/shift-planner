@@ -1,0 +1,28 @@
+table {
+  width: 100%;
+  padding: var(--spacer-xs);
+  border-spacing: 0;
+
+  thead {
+    background-color: var(--color-two);
+  }
+
+  th, td {
+    padding: var(--spacer-xs);
+  }
+
+  tbody {
+    tr {
+      transition: background-color 0.3s;
+
+      &:nth-child(even) {
+        background-color: var(--color-three);
+      }
+
+      &:hover,
+      &:focus {
+        background-color:var(--color-two);
+      }
+    }
+  }
+}

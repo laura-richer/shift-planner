@@ -1,0 +1,35 @@
+:root {
+  --font-xs: 1.6rem;
+  --font-sm: 2rem;
+  --font-md: 2.4rem;
+  --font-lg: 3rem;
+  --font-xl: 6rem;
+
+  --color-white: #ffffff;
+  --color-one: #e1f1ce;
+  --color-two: #b4d4c0;
+  --color-three: #daf0e2;
+  --color-four: #3f7b82;
+  --color-five: #667169;
+  --color-six: #3c433e;
+
+  --spacer-xs: 1rem;
+  --spacer-sm: 2rem;
+  --spacer-md: 3rem;
+  --spacer-lg: 5rem;
+  --spacer-xl: 7.5rem;
+
+  --drop-shadow: drop-shadow(0px 7px 18px #7f8d8320);
+  --gradient: linear-gradient(135deg, var(--color-four) 0%,var(--color-three) 100%);
+
+  --container-max-width: 1024px;
+  --container-compact-max-width: 768px;
+}
+
+@import '_typography';
+@import '_base';
+
+@import 'button';
+@import 'table';
+
+

@@ -13,9 +13,15 @@ import Search from '@/components/Search.vue';
 <style lang="scss" scoped>
 header {
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
+  gap: var(--spacer-xs);
   background-color: var(--color-one);
-  align-items: center;
   padding: var(--spacer-xs);
+
+  @media screen and (min-width: 640px) {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
 }
 </style>

@@ -16,10 +16,10 @@ export const useStore = defineStore('store', {
     itemsPerPage: 10,
     totalPages: 1,
     activePage: 1,
-    
+
     tableOrder: {},
     searchInput: '',
-    
+
     // Define the table columns here so they can be in all components without prop drilling
     tableColumns: [
       {
@@ -54,12 +54,16 @@ export const useStore = defineStore('store', {
       const data = await api.fetchPeople();
 
       // Map the API data to the structure I need
-      this.people = data.map(dataItem => ({
-        ...dataItem,
-        status: dataItem.active ? 'Active' : 'Inactive',
-        dateOfBirth: formatDate(dataItem.DateOfBirth),
-        startDate: formatDate(dataItem.StartDate),
-      }));
+      this.people = data.map(dataItem => {
+        const { active, DateOfBirth, StartDate } = dataItem;
+
+        return {
+          ...dataItem,
+          status: active ? 'Active' : 'Inactive',
+          dateOfBirth: formatDate(DateOfBirth),
+          startDate: formatDate(StartDate),
+        }
+      });
 
       this.setTotalPages();
     },
@@ -68,14 +72,18 @@ export const useStore = defineStore('store', {
       const data = await api.fetchShifts();
 
       // Changed object keys casing just to keep consistant across the frontend
-      this.shifts = data.map(dataItem => ({
-        id: dataItem.Id,
-        personId: dataItem.PersonId,
-        location: dataItem.Location,
-        role: dataItem.Role,
-        start: formatDateAndTime(dataItem.Start),
-        end: formatDateAndTime(dataItem.End),
-      }));
+      this.shifts = data.map(dataItem => {
+        const { Id, PersonId, Location, Role, Start, End } = dataItem;
+
+        return {
+          id: Id,
+          personId: PersonId,
+          location: Location,
+          role: Role,
+          start: formatDateAndTime(Start),
+          end: formatDateAndTime(End),
+        }
+      });
     },
 
     setTotalPages() {

@@ -13,4 +13,4 @@ pnpm/npm run dev
 ```
 
 #### List of known issues/future improvements
-[VS Code](https://code.visualstudio.com/)
+[https://github.com/laura-richer/shift-planner/issues](https://github.com/laura-richer/shift-planner/issues)

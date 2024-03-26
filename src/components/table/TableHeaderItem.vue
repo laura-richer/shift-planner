@@ -25,6 +25,8 @@ const columnOrder = ref(undefined);
 
 const reorderTableByColumn = columnId => {
   columnOrder.value = !columnOrder.value || columnOrder.value === 'DESC' ? 'ASC' : 'DESC';
+
+  // Sets table order to the store so we can reorder the people
   store.setTableOrder(columnId, columnOrder.value);
 }
 </script>

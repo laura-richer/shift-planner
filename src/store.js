@@ -65,6 +65,8 @@ export const useStore = defineStore('store', {
         }
       });
 
+      // Set pagination values once data is fetched
+      // This probably should have an await in front
       this.setTotalPages();
     },
 
@@ -87,6 +89,7 @@ export const useStore = defineStore('store', {
     },
 
     setTotalPages() {
+      // Set total pages value to store
       this.totalPages = Math.ceil(this.people?.length / this.itemsPerPage);
     },
 
@@ -116,9 +119,11 @@ export const useStore = defineStore('store', {
         // Create new array here rather than mutating the original
         let filteredPeople = [...state.people];
 
+        // Apply any filtering to list of people
         if (state.searchInput) filteredPeople = searchItems(filteredPeople, state.searchInput);
         if (Object.keys(state.tableOrder).length) filteredPeople = reorderItems(filteredPeople, state.tableOrder);
 
+        // Apply pagination
         filteredPeople = paginateItems(filteredPeople, state.activePage, state.itemsPerPage);
 
         return filteredPeople;

@@ -13,13 +13,15 @@ const activePersonName = computed(() => {
 const activePersonShifts = computed(() => {
   return store.getActivePersonShifts();
 });
- 
+
 </script>
 
 <template>
   <div class="modal">
     <div class="modal__inner">
       <div class="modal__header">
+        <!-- using the active person ID to show or hide the modal -->
+        <!-- setting to undefined on close therefore hides the modal -->
         <button class="modal__close" @click="store.setActivePersonId(undefined)">Close</button>
       </div>
 
@@ -28,7 +30,7 @@ const activePersonShifts = computed(() => {
           <h2>Upcoming shifts</h2>
           <h3>{{ activePersonName }}</h3>
         </div>
-        
+
         <Shift v-for="shift in activePersonShifts" :key="shift.id" v-bind="shift" />
       </div>
     </div>

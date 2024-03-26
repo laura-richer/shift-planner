@@ -17,11 +17,12 @@ store.fetchShifts();
 
 <template>
   <Header />
-  
+
   <div class="container">
     <TableView />
   </div>
 
+  <!-- Using the clicked person id to show or not show the modal -->
   <Modal v-if="store.activePersonId" />
 </template>
 
